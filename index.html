@@ -77,9 +77,9 @@
                 The inspiration to make the house here in the web, were natural patterns and natural shapes, because the nature is the best engineer and designer, making a natural-eficient environmet. Taking the nature as inspiration is the best option due to the enrgy-eficient proceses it uses and natural patterns that follow mathematical formula, as for example the ones here below(e.g. Shells, Branches, Cracks, etc.).
             </p>
 
-            <div>
-                <img src="" alt="Shells fibonacci">
-                <p>Patterns blabla</p>
+            <div class="patternContainer">
+                <img src="Assets/Photos/FibonacciShell.png" alt="Shells fibonacci" class="naturalIMG">
+                <p class="patternText">Fibonacci shells patterns uses mathematics of what we call beatiful but in a natural way</p>
             </div>
             <!-- Add all the others later -->
         </fieldset>
@@ -104,7 +104,7 @@
                 <ul>
                     <li type="I" class="Features">A house that needs way less energy than a normal house with 3x size than a normal one.</li>
                     <li type="I" class="Features">Natural products such as pans that do not spread microplastics all over the place, with steinless steel pans.</li>
-                    <li type="I" class="Features">THINK ON ONE MORE.</li>
+                    <li type="I" class="Features">A house that uses the waste on the advantage of the nature by using it as a plant fertilizer automatically.</li>
                 </ul>
             </blockquote>
 
@@ -137,5 +137,19 @@
             <!-- Add all the others later -->
         </fieldset>
     </section>
+
+    <script>
+        const elemento = document.getElementById("PrincipalHead");
+    
+        function reducirAlturaUnaVez(event) {
+        if (event.deltaY > 0) {
+            // Solo si hace scroll hacia abajo
+            elemento.style.height = "150px";
+            window.removeEventListener("wheel", reducirAlturaUnaVez);
+        }
+        }
+    
+        window.addEventListener("wheel", reducirAlturaUnaVez);
+    </script>
 </body>
 </html>

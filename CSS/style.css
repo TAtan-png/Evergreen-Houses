@@ -1,7 +1,11 @@
+:root{
+    --BGmint: #e3f3e3;
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
-    background-color: #f3f3f3;
+    background-color: var(--BGmint);
 }
 
 p{
@@ -17,13 +21,12 @@ p{
     align-items: center;
     color: #000;
     padding: 5px;
-    height: 70px;
+    height: 100vw;
     transition: 0.7s ease;
-}
-
-#PrincipalHead:hover {
-    height: 90px;
-    box-shadow: 0 0 15px 0 #0003;
+    -webkit-transition: height 0.7s ease;
+    -moz-transition: 0.7s ease;
+    -ms-transition: 0.7s ease;
+    -o-transition: 0.7s ease;
 }
 
 #PrincipalTitle {
@@ -82,4 +85,38 @@ section{
     height: 150px;
     width:100%;
     border: 2px solid #000;
+}
+
+fieldset {
+    background-color: #fff;
+    box-shadow: 0 0 40px 0 #a4a4a4;
+}
+
+.naturalIMG{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px 1px #0009;
+    box-sizing: border-box;
+    transition: ease 0.5s;
+}
+
+.naturalIMG:hover, .patternText:hover{
+    scale: 1.05;
+    box-shadow: 10px 10px 25px 1px #0009;
+    box-sizing: border-box;
+}
+
+.patternContainer{
+    width: 150px;
+    justify-content: center;
+}
+
+.patternText{
+    border: 1px solid #000;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: var(--BGmint);
+    box-shadow: 10px 10px 15px 1px #0009;
+    transition: ease 0.5s;
 }
