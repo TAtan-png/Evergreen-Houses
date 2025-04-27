@@ -25,7 +25,6 @@ p{
     height: 100vh;
     transition: 0.5s ease;
     z-index: -1;
-    margin-bottom: 100px;
 }
 
 /* Clase agregada por JS */
@@ -36,7 +35,6 @@ p{
 /* Hover que funciona después del scroll */
 #PrincipalHead.reducido:hover {
     height: 250px;
-    
 }
 
 
@@ -50,7 +48,7 @@ p{
     height: 100px;
     border-radius: 50%;
     padding: 10px;
-    left: 0;
+    left: 3vw;
 }
 
 #PrincipalTitle:hover {
@@ -90,6 +88,39 @@ p{
     text-decoration: none;
     color: #000;
     position: relative;
+}
+
+.contenedor {
+    position: relative;
+    display: inline-block;
+}
+
+.texto-hover {
+    position: absolute;
+    top: 110%; /* aparece debajo del botón */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* inicia un poquito abajo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.contenedor:hover .texto-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0px); /* sube suavemente */
+    }
+
+ul {
+    display:  flex;
+    gap: 5vw;
+    list-style: none;
 }
 
 .Anchors:hover{

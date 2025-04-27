@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover con Fade y Subida</title>
+  <style>
+    .contenedor {
+      position: relative;
+      display: inline-block;
+    }
+
+    .texto-hover {
+      position: absolute;
+      top: 110%; /* aparece debajo del botón */
+      left: 50%;
+      transform: translateX(-50%) translateY(10px); /* inicia un poquito abajo */
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      background: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .contenedor:hover .texto-hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0px); /* sube suavemente */
+    }
+  </style>
+</head>
+<body>
+
+<div class="contenedor">
+  <button>¡Pasa el mouse!</button>
+  <div class="texto-hover">Texto bonito 😎🎈</div>
+</div>
+
+</body>
+</html>
