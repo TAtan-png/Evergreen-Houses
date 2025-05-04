@@ -2,42 +2,83 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Hover con Fade y Subida</title>
+  <title>Hoja Realista</title>
   <style>
-    .contenedor {
+    body {
+      background-color: #F1F8E9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hoja {
+      width: 120px;
+      height: 180px;
+      background: radial-gradient(ellipse at center, #4CAF50 40%, #2E7D32 100%);
+      border-radius: 60% 60% 60% 60% / 80% 80% 20% 20%;
       position: relative;
-      display: inline-block;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: flotar 6s ease-in-out infinite;
+      transform-origin: bottom center;
     }
 
-    .texto-hover {
+    .hoja::after {
+      content: "";
       position: absolute;
-      top: 110%; /* aparece debajo del botón */
+      bottom: -45px;
       left: 50%;
-      transform: translateX(-50%) translateY(10px); /* inicia un poquito abajo */
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      background: #f0f0f0;
-      padding: 5px 10px;
-      border-radius: 5px;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-      font-size: 14px;
-      white-space: nowrap;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 60px;
+      background-color: #2E7D32;
+      border-radius: 2px;
     }
 
-    .contenedor:hover .texto-hover {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0px); /* sube suavemente */
+    .vena-central {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 2px;
+      height: 80%;
+      background-color: #ffffff55;
+      transform: translateX(-50%);
+    }
+
+    .vena-lateral {
+      position: absolute;
+      width: 1.5px;
+      height: 40%;
+      background-color: #ffffff33;
+    }
+
+    .vena-lateral.left {
+      left: 40%;
+      top: 25%;
+      transform: rotate(-30deg);
+    }
+
+    .vena-lateral.right {
+      right: 40%;
+      top: 25%;
+      transform: rotate(30deg);
+    }
+
+    @keyframes flotar {
+      0% { transform: rotate(-1deg) translateY(0px); }
+      25% { transform: rotate(2deg) translateY(-10px); }
+      50% { transform: rotate(-2deg) translateY(-15px); }
+      75% { transform: rotate(1deg) translateY(-10px); }
+      100% { transform: rotate(-1deg) translateY(0px); }
     }
   </style>
 </head>
 <body>
-
-<div class="contenedor">
-  <button>¡Pasa el mouse!</button>
-  <div class="texto-hover">Texto bonito 😎🎈</div>
-</div>
-
+  <div class="hoja">
+    <div class="vena-central"></div>
+    <div class="vena-lateral left"></div>
+    <div class="vena-lateral right"></div>
+  </div>
 </body>
 </html>
