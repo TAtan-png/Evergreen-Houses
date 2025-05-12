@@ -1,84 +1,84 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Hoja Realista</title>
-  <style>
-    body {
-      background-color: #F1F8E9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hoja {
-      width: 120px;
-      height: 180px;
-      background: radial-gradient(ellipse at center, #4CAF50 40%, #2E7D32 100%);
-      border-radius: 60% 60% 60% 60% / 80% 80% 20% 20%;
-      position: relative;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      animation: flotar 6s ease-in-out infinite;
-      transform-origin: bottom center;
-    }
-
-    .hoja::after {
-      content: "";
-      position: absolute;
-      bottom: -45px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 5px;
-      height: 60px;
-      background-color: #2E7D32;
-      border-radius: 2px;
-    }
-
-    .vena-central {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      width: 2px;
-      height: 80%;
-      background-color: #ffffff55;
-      transform: translateX(-50%);
-    }
-
-    .vena-lateral {
-      position: absolute;
-      width: 1.5px;
-      height: 40%;
-      background-color: #ffffff33;
-    }
-
-    .vena-lateral.left {
-      left: 40%;
-      top: 25%;
-      transform: rotate(-30deg);
-    }
-
-    .vena-lateral.right {
-      right: 40%;
-      top: 25%;
-      transform: rotate(30deg);
-    }
-
-    @keyframes flotar {
-      0% { transform: rotate(-1deg) translateY(0px); }
-      25% { transform: rotate(2deg) translateY(-10px); }
-      50% { transform: rotate(-2deg) translateY(-15px); }
-      75% { transform: rotate(1deg) translateY(-10px); }
-      100% { transform: rotate(-1deg) translateY(0px); }
-    }
-  </style>
-</head>
-<body>
-  <div class="hoja">
-    <div class="vena-central"></div>
-    <div class="vena-lateral left"></div>
-    <div class="vena-lateral right"></div>
+<div class="carousel">
+  <button class="prev">&#10094;</button>
+  <div class="carousel-images">
+    <img src="img1.jpg" class="active">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <!-- Agrega más imágenes aquí -->
   </div>
-</body>
-</html>
+  <button class="next">&#10095;</button>
+</div>
+
+<style>
+  .carousel {
+  position: relative;
+  width: 400px; /* Puedes cambiar el tamaño */
+  height: 250px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-images img {
+  width: 400px;
+  height: 250px;
+  display: none;
+}
+
+.carousel-images img.active {
+  display: block;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+</style>
+
+<script>
+  const images = document.querySelectorAll('.carousel-images img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel();
+  });
+
+  updateCarousel(); // Inicializa
+</script>
+

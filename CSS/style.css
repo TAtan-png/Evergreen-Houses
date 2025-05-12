@@ -287,3 +287,48 @@ footer {
 .aparecer {
     animation: aparecer 0.9s ease forwards;
 }
+
+.carousel {
+    position: relative;
+  width: 250px; /* Puedes cambiar el tamaño */
+    height: 250px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-images img {
+    width: 250px;
+    height: 250px;
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}

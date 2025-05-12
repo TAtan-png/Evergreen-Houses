@@ -125,12 +125,6 @@
                 <img src="Assets/Photos/Cracks.jpeg" alt="Shells fibonacci" class="naturalIMG">
                 <p class="patternText">Cracks, a natural fenomenum related to the natural movements of the tectonic plates</p>
             </div>
-            
-            <div class="patternContainer">
-                <img src="Assets/Photos/Cracks.jpeg" alt="Shells fibonacci" class="naturalIMG">
-                <p class="patternText">Cracks, a natural fenomenum related to the natural movements of the tectonic plates</p>
-            </div>
-            <!-- Add all the others later -->
         </fieldset>
     </section>
 
@@ -176,10 +170,16 @@
                 Some interior designs and architectural draws are here below, also digital designs to see further information about the structure and building bases.
             </p>
             <hr>
-            <div>
-                <img src="" alt="Interior">
-                <p>Livingroom blabla</p>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <div class="carousel-images">
+                <img src="Assets/Photos/Arbol.jpg" class="active">
+                <img src="Assets/Photos/arbolarriba.jpg">
+                <img src="Assets/Photos/coso.jpg">
+                </div>
+                <button class="next">&#10095;</button>
             </div>
+
             <!-- Add all the others later -->
         </fieldset>
     </section>
@@ -207,5 +207,30 @@ function reducirAlturaUnaVez(event) {
 
 window.addEventListener("wheel", reducirAlturaUnaVez);
     </script>
+
+    <script>
+const images = document.querySelectorAll('.carousel-images img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentIndex = 0;
+
+function updateCarousel() {
+    images.forEach((img, i) => {
+    img.classList.toggle('active', i === currentIndex);
+    });
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel();
+});
+
+  updateCarousel(); // Inicializa
+</script>
 </body>
 </html>
